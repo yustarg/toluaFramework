@@ -29,6 +29,7 @@ public class LuaMgr : MonoBehaviour
     // Use this for initialization
     public void Init () {
         lua = new LuaState();
+        lua.AddSearchPath(Application.dataPath + "/Lua/Framework/3rd");
         lua.Start();
         LuaBinder.Bind(lua);
     }
