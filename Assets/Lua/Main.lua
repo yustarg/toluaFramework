@@ -1,6 +1,6 @@
 -- 引入middleclass
 class = require "Framework/3rd/middleclass"
-
+require "Framework/FSM/FSM"
 require "Logic/Facade/AppFacade"
 
 --主入口函数。从这里开始lua逻辑
