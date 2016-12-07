@@ -22,6 +22,8 @@ public static class DelegateFactory
 		dict.Add(typeof(System.Predicate<int>), System_Predicate_int);
 		dict.Add(typeof(System.Action<int>), System_Action_int);
 		dict.Add(typeof(System.Comparison<int>), System_Comparison_int);
+		dict.Add(typeof(SceneMgr.LoadSceneDoneCallback), SceneMgr_LoadSceneDoneCallback);
+		dict.Add(typeof(SceneMgr.LoadSceneUpdateProgressCallback), SceneMgr_LoadSceneUpdateProgressCallback);
 		dict.Add(typeof(UnityEngine.Camera.CameraCallback), UnityEngine_Camera_CameraCallback);
 		dict.Add(typeof(UnityEngine.Application.LogCallback), UnityEngine_Application_LogCallback);
 		dict.Add(typeof(UnityEngine.Application.AdvertisingIdentifierCallback), UnityEngine_Application_AdvertisingIdentifierCallback);
@@ -374,6 +376,102 @@ public static class DelegateFactory
 		{
 			System_Comparison_int_Event target = new System_Comparison_int_Event(func, self);
 			System.Comparison<int> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class SceneMgr_LoadSceneDoneCallback_Event : LuaDelegate
+	{
+		public SceneMgr_LoadSceneDoneCallback_Event(LuaFunction func) : base(func) { }
+		public SceneMgr_LoadSceneDoneCallback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate SceneMgr_LoadSceneDoneCallback(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			SceneMgr.LoadSceneDoneCallback fn = delegate(string param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			SceneMgr_LoadSceneDoneCallback_Event target = new SceneMgr_LoadSceneDoneCallback_Event(func);
+			SceneMgr.LoadSceneDoneCallback d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			SceneMgr_LoadSceneDoneCallback_Event target = new SceneMgr_LoadSceneDoneCallback_Event(func, self);
+			SceneMgr.LoadSceneDoneCallback d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	class SceneMgr_LoadSceneUpdateProgressCallback_Event : LuaDelegate
+	{
+		public SceneMgr_LoadSceneUpdateProgressCallback_Event(LuaFunction func) : base(func) { }
+		public SceneMgr_LoadSceneUpdateProgressCallback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0, float param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public static Delegate SceneMgr_LoadSceneUpdateProgressCallback(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			SceneMgr.LoadSceneUpdateProgressCallback fn = delegate(string param0, float param1) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			SceneMgr_LoadSceneUpdateProgressCallback_Event target = new SceneMgr_LoadSceneUpdateProgressCallback_Event(func);
+			SceneMgr.LoadSceneUpdateProgressCallback d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			SceneMgr_LoadSceneUpdateProgressCallback_Event target = new SceneMgr_LoadSceneUpdateProgressCallback_Event(func, self);
+			SceneMgr.LoadSceneUpdateProgressCallback d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}

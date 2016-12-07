@@ -2,34 +2,15 @@
 using System.Collections;
 using LuaInterface; 
 
-public class LuaMgr : MonoBehaviour
+public class LuaMgr : MonoSingleton<LuaMgr>
 {
-
-    private static LuaMgr _instance;
-
-    public static LuaMgr Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                Debug.LogError("LuaMgr is null!!");
-            }
-            return _instance;
-        }
-    }
-
-    LuaState lua = null;
-
-    void Awake()
-    {
-        _instance = this;
-    }
+    private static string puremvcPath = Application.dataPath + "/Lua/Framework/3rd";
+    private LuaState lua = null;
 
     // Use this for initialization
     public void Init () {
         lua = new LuaState();
-        lua.AddSearchPath(Application.dataPath + "/Lua/Framework/3rd");
+        lua.AddSearchPath(puremvcPath);
         lua.Start();
         LuaBinder.Bind(lua);
     }

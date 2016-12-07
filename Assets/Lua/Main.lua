@@ -1,3 +1,4 @@
+-- 引入middleclass
 class = require "Framework/3rd/middleclass"
 
 require "Logic/Facade/AppFacade"
@@ -6,6 +7,7 @@ require "Logic/Facade/AppFacade"
 function Main()					
 	print("main!!!")
 	local appFacade = AppFacade:GetInstance(AppFacade.KEY)
+	appFacade:SendNotification(AppFacade.STARTUP)
 end
 
 --场景切换通知

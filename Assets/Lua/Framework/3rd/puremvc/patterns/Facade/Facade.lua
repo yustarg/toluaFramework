@@ -2,6 +2,7 @@ require 'puremvc/interfaces/IFacade'
 require 'puremvc/core/Model'
 require 'puremvc/core/View'
 require 'puremvc/core/Controller'
+require 'puremvc/patterns/Observer/Notification'
 
 local class = require 'middleclass'
 
