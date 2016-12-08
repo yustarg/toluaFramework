@@ -1,5 +1,7 @@
 require "Framework/3rd/puremvc/patterns/Command/SimpleCommand"
+require "Framework/3rd/puremvc/patterns/Command/MacroCommand"
 require "Framework/3rd/puremvc/patterns/Facade/Facade"
+require "Framework/3rd/puremvc/patterns/Mediator/Mediator"
 require "Logic/Command/StartupCommand"
 require "Logic/Command/SwitchSceneCommand"
 

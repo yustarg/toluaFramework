@@ -5,6 +5,10 @@ function FSM:initialize()
 	self.stateMap = {}
 end
 
+function FSM:Start()
+	
+end
+
 function FSM:AddState(name, state)
  	if self.stateMap[name] ~= nil then
  		error("fsm already has a state with the same name!")
