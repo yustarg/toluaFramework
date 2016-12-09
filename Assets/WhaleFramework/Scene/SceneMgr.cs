@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class SceneMgr : MonoSingleton<SceneMgr> {
 
@@ -30,6 +31,11 @@ public class SceneMgr : MonoSingleton<SceneMgr> {
         this.mOperation = SceneManager.LoadSceneAsync(sceneName);
         this.mLoadSceneDoneCallback = loadSceneDoneCallback;
         this.mUpdateProgressCallback = updateCallback;
+    }
+
+    private void onlci()
+    {
+
     }
 
     public void Update()

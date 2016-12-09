@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+//using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
 using LuaInterface;
 
 using BindType = ToLuaMenu.BindType;
 using System.Reflection;
+using UnityEngine.EventSystems;
 
 public static class CustomSettings
 {
@@ -134,6 +138,13 @@ public static class CustomSettings
         _GT(typeof(RenderSettings)),                                                   
         _GT(typeof(BlendWeights)),           
         _GT(typeof(RenderTexture)),
+
+        _GT(typeof(Button)),
+        _GT(typeof(UIBehaviour)),
+        _GT(typeof(Button.ButtonClickedEvent)),
+        _GT(typeof(UnityEventBase)),
+        _GT(typeof(UnityEvent)),
+
     };
 
     public static List<Type> dynamicList = new List<Type>()
