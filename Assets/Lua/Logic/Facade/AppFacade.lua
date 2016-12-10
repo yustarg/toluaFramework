@@ -16,5 +16,5 @@ end
 
 function AppFacade:InitializeController()
  	Facade.InitializeController(self)
- 	self:RegisterCommand(AppFacade.MSG_STARTUP, StartupCommand)
+ 	self:RegisterCommand(AppFacade.MSG_STARTUP, StartupCommand:new())
 end

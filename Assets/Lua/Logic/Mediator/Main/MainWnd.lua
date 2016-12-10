@@ -1,13 +1,27 @@
-MainWnd = class("MainWnd")
+require "Framework/BaseUI"
 
-function MainWnd:initialize(transform)
-	self.transform = transform
+MainWnd = class("MainWnd", BaseUI)
+
+function MainWnd:initialize(root, path)
+	BaseUI.initialize(self, root, path)
+end
+
+function MainWnd:Awake()
 	self:InitUI()
 end
 
 function MainWnd:InitUI()
-	self.button = self.transform:FindChild("Button"):GetComponent("Button")
-	self.button.onClick:AddListener(function()
-		print("on onClick!!!")
-	end)
+	self.button = self:GetButton("Button")
+	self.button.onClick:AddListener(UnityAction(self.OnClick, self))
+	
+	self.text = self:GetText("Text")
+end
+
+function MainWnd:OnClick()
+	-- print("OnClick")
+	appFacade:SendNotification(MainMediator.MSG_CLICK_ADD_BTN)
+end
+
+function MainWnd:UpdateText(text)
+	self.text.text = text
 end

@@ -54,6 +54,7 @@ public static class CustomSettings
         //_GT(typeof(TestExport.Space)),
         //-------------------------------------------------------------------        
         _GT(typeof(SceneMgr)),
+        _GT(typeof(LuaBehaviour)),
         _GT(typeof(Debugger)).SetNameSpace(null),        
 
 #if USING_DOTWEENING
@@ -139,12 +140,18 @@ public static class CustomSettings
         _GT(typeof(BlendWeights)),           
         _GT(typeof(RenderTexture)),
 
+        //Unity UI
         _GT(typeof(Button)),
+        _GT(typeof(Text)),
+        _GT(typeof(Image)),
+        _GT(typeof(RectTransform)),
         _GT(typeof(UIBehaviour)),
+        _GT(typeof(MaskableGraphic)),
+        _GT(typeof(Graphic)),
         _GT(typeof(Button.ButtonClickedEvent)),
+        _GT(typeof(Selectable)),
         _GT(typeof(UnityEventBase)),
         _GT(typeof(UnityEvent)),
-
     };
 
     public static List<Type> dynamicList = new List<Type>()

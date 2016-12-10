@@ -7,6 +7,11 @@ public class LuaMgr : MonoSingleton<LuaMgr>
     private static string puremvcPath = Application.dataPath + "/Lua/Framework/3rd";
     private LuaState lua = null;
 
+    public LuaState LuaState
+    {
+        get { return lua; }
+    }
+
     // Use this for initialization
     public void Init () {
         lua = new LuaState();
