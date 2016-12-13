@@ -18,7 +18,6 @@ function MainWnd:InitUI()
 end
 
 function MainWnd:OnClick()
-	-- print("OnClick")
 	appFacade:SendNotification(MainMediator.MSG_CLICK_ADD_BTN)
 end
 
